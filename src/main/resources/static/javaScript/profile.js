@@ -22,3 +22,32 @@ function updateprofile(){
         }
     })
 }
+
+function getprofile(){
+    let userId = 1;
+    console.log("a");
+    /*$("#hide").show();*/
+    $.ajax({
+        method : "GET",
+        url : "http://localhost:8080/user/getprofile/1",
+        /*redirect : "/getProfilePage",*/
+        /*processData : false,
+        contentType : false,*/
+        success : function (response) {
+            console.log("c");
+            console.log(Object(response)[0]);
+            console.log(JSON.parse(JSON.stringify(Object(response)[0])).name);
+            document.getElementById("hide").style.display = "block";
+            document.getElementById("name").innerHTML = JSON.parse(JSON.stringify(Object(response)[0])).name;
+            document.getElementById("email").innerHTML = JSON.parse(JSON.stringify(Object(response)[0])).email;
+            document.getElementById("phone").innerHTML = JSON.parse(JSON.stringify(Object(response)[0])).phone;
+            document.getElementById("street").innerHTML = JSON.parse(JSON.stringify(Object(response)[0])).address.street;
+            document.getElementById("city").innerHTML = JSON.parse(JSON.stringify(Object(response)[0])).address.city;
+            document.getElementById("state").innerHTML = JSON.parse(JSON.stringify(Object(response)[0])).address.state;
+            document.getElementById("pincode").innerHTML = JSON.parse(JSON.stringify(Object(response)[0])).address.pincode;
+        },
+        error : function (xhr) {
+            alert(xhr.responseText);
+        }
+    })
+}

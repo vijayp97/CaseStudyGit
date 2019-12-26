@@ -25,4 +25,12 @@ public class PageController {
     public String updateProductPage(){
         return "updateProduct.html";
     }
+    @RequestMapping("/profilePage")
+    public String profilePage(){
+        return "profile.html";
+    }
+    @RequestMapping("/getProfilePage")
+    public String getProfilePage(){
+        return "getProfile.html";
+    }
 }
