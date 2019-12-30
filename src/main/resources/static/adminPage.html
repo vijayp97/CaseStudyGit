@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="javaScript/product.js" type="text/javascript"></script>
+</head>
+<body>
+    <a href="#" onclick="addproductform()">add Product</a>
+    <a href="#" onclick="updateproductform()">update Product</a>
+    <div class="d-none" id="addProductDiv">
+        <form>
+            <input name="productName" placeholder="name" type="text" id="addName"><br>
+            <input name="price" placeholder="price" type="text" id="addPrice"><br>
+            <input name="details" placeholder="details" type="text" id="addDetails"><br>
+            <input name="category" placeholder="category" type="text" id="addCategory"><br>
+            <input name="subCategory" placeholder="sub-category" type="text" id="addSubCategory"><br>
+            <input type="button" value="add" onclick="addproduct()">
+        </form>
+    </div>
+    <div class="d-none" id="updateProductDiv">
+        <form>
+            <input name="productId" placeholder="product-id" type="text" id="updateProductId"><br>
+            <input name="productName" placeholder="name" type="text" id="updateName"><br>
+            <input name="price" placeholder="price" type="text" id="updatePrice"><br>
+            <input name="details" placeholder="details" type="text" id="updateDetails"><br>
+            <input name="category" placeholder="category" type="text" id="updateCategory"><br>
+            <input name="subCategory" placeholder="sub-category" type="text" id="updateSubCategory"><br>
+            <input type="button" value="update" onclick="updateproduct()">
+        </form>
+    </div>
+</body>
+</html>

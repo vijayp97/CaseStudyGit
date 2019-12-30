@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="javaScript/profile.js" type="text/javascript"></script>
+</head>
+<body>
+    <a href="#" onclick="getprofile()">get Profile</a>
+    <a href="#" onclick="updateprofileform()">update Profile</a>
+    <div class="d-none" id="getProfileDiv">
+        <p>name : <span id="getName"></span></p><br>
+        <p>email : <span id="getEmail"></span></p><br>
+        <p>phone : <span id="getPhone"></span></p><br>
+        <p>street : <span id="getStreet"></span></p><br>
+        <p>city : <span id="getCity"></span></p><br>
+        <p>state : <span id="getState"></span></p><br>
+        <p>pincode : <span id="getPincode"></span></p><br>
+    </div>
+    <div class="d-none" id="updateProfileDiv">
+        <form>
+            <input name="name" placeholder="name" type="text" id="updateName"><br>
+            <input name="email" placeholder="email" type="text" id="updateEmail"><br>
+            <input name="phone" placeholder="phone" type="text" id="updatePhone"><br>
+            <input name="address.street" placeholder="street" type="text" id="updateStreet"><br>
+            <input name="address.city" placeholder="city" type="text" id="updateCity"><br>
+            <input name="address.state" placeholder="state" type="text" id="updateState"><br>
+            <input name="address.pincode" placeholder="pincode" type="text" id="updatePincode"><br>
+            <input type="button" value="update" onclick="updateprofile()">
+        </form>
+    </div>
+</body>
+</html>

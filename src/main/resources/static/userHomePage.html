@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="javaScript/product.js" type="text/javascript"></script>
+</head>
+<body>
+    <form>
+        <select name="searchType" id="searchType">
+            <option value="all">All</option>
+            <option value="category">Category</option>
+            <option value="subcategory">SubCategory</option>
+            <option value="details">Details</option>
+            <option value="productName">ProductName</option>
+        </select>
+        <input name="searchString" id="searchString" placeholder="search string">
+        <input name="minimumPrice" id="mimimum" placeholder="minimum price">
+        <input name="maximumPrice" id="maximum" placeholder="maximum price">
+        <input type="button" value="search" onclick="productSearch()">
+    </form>
+    <div id="productList">
+
+    </div>
+</body>
+</html>

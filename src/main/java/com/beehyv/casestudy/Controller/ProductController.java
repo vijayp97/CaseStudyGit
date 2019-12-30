@@ -35,7 +35,23 @@ public class ProductController {
         return productService.getProductById(product.getProductId());
     }
     @PostMapping("/user/products/{category}/getFilteredProducts")
-    public List<Product> getFilteredProducts(@PathVariable("category") String category, int minimum, int maximum) throws ProductNotFoundException {
-        return productService.getFilteredProducts(category, minimum, maximum);
+    public List<Product> getFilteredProductsByCategory(@PathVariable("category") String category, int minimum, int maximum) throws ProductNotFoundException {
+        return productService.getFilteredProductsByCategory(category, minimum, maximum);
+    }
+    @GetMapping("/user/products/getProducts")
+    public List<Product> getProducts(){
+        return productService.getProducts();
+    }
+    @PostMapping("/user/products/{subCategory}/getFilteredProducts")
+    public List<Product> getFilteredProductsBySubCategory(@PathVariable("subCategory") String subCategory, int minimum, int maximum) throws ProductNotFoundException {
+        return productService.getFilteredProductsBySubCategory(subCategory, minimum, maximum);
+    }
+    @PostMapping("/user/products/{details}/getFilteredProducts")
+    public List<Product> getFilteredProductsByDetails(@PathVariable("details") String details, int minimum, int maximum) throws ProductNotFoundException {
+        return productService.getFilteredProductsByDetails(details, minimum, maximum);
+    }
+    @PostMapping("/user/products/{productName}/getFilteredProducts")
+    public List<Product> getFilteredProductsByProductName(@PathVariable("productName") String productName, int minimum, int maximum) throws ProductNotFoundException {
+        return productService.getFilteredProductsByProductName(productName, minimum, maximum);
     }
 }

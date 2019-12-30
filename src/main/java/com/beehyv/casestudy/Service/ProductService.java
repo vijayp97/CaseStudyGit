@@ -50,8 +50,36 @@ public class ProductService{
         }
         return products;
     }
-    public List<Product> getFilteredProducts(String category , int minimum, int maximum) throws ProductNotFoundException {
-        List<Product> products = productRepository.findByCategoryAndPriceBetween(category, minimum, maximum);
+    public List<Product> getFilteredProductsByCategory(String category , int minimum, int maximum) throws ProductNotFoundException {
+        List<Product> products;
+        if((minimum == 0)&&(maximum == 0))
+            products = productRepository.findByCategory(category);
+        else
+            products = productRepository.findByCategoryContainingAndPriceBetween(category, minimum, maximum);
+        /*if(products.isEmpty()){
+            throw new ProductNotFoundException("no products found");
+        }*/
+        return products;
+    }
+    public List<Product> getProducts(){
+        return productRepository.findAll();
+    }
+    public List<Product> getFilteredProductsBySubCategory(String subCategory , int minimum, int maximum) throws ProductNotFoundException {
+        List<Product> products = productRepository.findBySubCategoryContainingAndPriceBetween(subCategory, minimum, maximum);
+        if(products.isEmpty()){
+            throw new ProductNotFoundException("no products found");
+        }
+        return products;
+    }
+    public List<Product> getFilteredProductsByDetails(String details , int minimum, int maximum) throws ProductNotFoundException {
+        List<Product> products = productRepository.findByDetailsContainingAndPriceBetween(details, minimum, maximum);
+        if(products.isEmpty()){
+            throw new ProductNotFoundException("no products found");
+        }
+        return products;
+    }
+    public List<Product> getFilteredProductsByProductName(String productName , int minimum, int maximum) throws ProductNotFoundException {
+        List<Product> products = productRepository.findByProductNameContainingAndPriceBetween(productName, minimum, maximum);
         if(products.isEmpty()){
             throw new ProductNotFoundException("no products found");
         }

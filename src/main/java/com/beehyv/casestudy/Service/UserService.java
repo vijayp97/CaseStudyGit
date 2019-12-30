@@ -58,6 +58,9 @@ public class UserService{
         }
     }
     public List<Profile> getProfileById(int id) throws UserNotFoundException {
+        if(id == 0){
+            id = 1;
+        }
         if(/*id == loginService.loggedInUser()*/true) {
             List<Profile> profiles =  profileRepository.findByUserId(id);
             if(profiles.isEmpty()){

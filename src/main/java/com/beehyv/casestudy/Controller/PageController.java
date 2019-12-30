@@ -13,24 +13,16 @@ public class PageController {
     public String loginPage(){
         return "loginPage.html";
     }
-    @RequestMapping("/updateProfilePage")
-    public String updateProfilePage(){
-        return "updateProfile.html";
-    }
-    @RequestMapping("/addProductPage")
-    public String addProductPage(){
-        return "addProduct.html";
-    }
-    @RequestMapping("/updateProductPage")
-    public String updateProductPage(){
-        return "updateProduct.html";
-    }
     @RequestMapping("/profilePage")
     public String profilePage(){
-        return "profile.html";
+        return "profilePage.html";
     }
-    @RequestMapping("/getProfilePage")
-    public String getProfilePage(){
-        return "getProfile.html";
+    @RequestMapping("/adminPage")
+    public String adminPage(){
+        return "adminPage.html";
+    }
+    @RequestMapping("/homePage")
+    public String homePage(){
+        return "userHomePage.html";
     }
 }
