@@ -159,16 +159,16 @@ public class ProductServiceTest {
         product.setPrice(39);
         List<Product> products = new LinkedList<>();
         products.add(product);
-        when(productRepository.findByCategoryAndPriceBetween(category, 30, 40)).thenReturn(products);
-        assertEquals(1, productService.getFilteredProducts(category, 30, 40).size());
+        when(productRepository.findByCategoryContainingAndPriceBetween(category, 30, 40)).thenReturn(products);
+        assertEquals(1, productService.getFilteredProductsByCategory(category, 30, 40).size());
     }
     @Test
     public void getFilteredProductsTestException(){
         String category = "food";
         List<Product> products = new LinkedList<>();
-        when(productRepository.findByCategoryAndPriceBetween(category, 30, 40)).thenReturn(products);
+        when(productRepository.findByCategoryContainingAndPriceBetween(category, 30, 40)).thenReturn(products);
         try{
-            productService.getFilteredProducts(category, 30, 40);
+            productService.getFilteredProductsByCategory(category, 30, 40);
         }
         catch (ProductNotFoundException e){
             assertEquals("no products found", e.getMessage());

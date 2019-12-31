@@ -12,10 +12,16 @@ public interface ProductRepository extends JpaRepository<Product, Integer> {
     List<Product> findByProductId(int id);
     List<Product> findByCategory(String category);
     List<Product> findByProductNameContainingOrCategoryContainingOrSubCategoryContainingOrDetailsContaining(String productName, String category, String subCategory, String details);
+    List<Product> findByPriceBetweenAndProductNameContainingOrCategoryContainingOrSubCategoryContainingOrDetailsContaining(int minimum, int maximum, String productName, String category, String subCategory, String details);
     List<Product> findByProductName(String productName);
     List<Product> findByCategoryContainingAndPriceBetween(String category, int minimum, int maximum);
     List<Product> findBySubCategoryContainingAndPriceBetween(String subCategory, int minimum, int maximum);
     List<Product> findByDetailsContainingAndPriceBetween(String details, int minimum, int maximum);
     List<Product> findByProductNameContainingAndPriceBetween(String productName, int minimum, int maximum);
+    List<Product> findByCategoryContaining(String category);
+    List<Product> findByProductNameContaining(String productName);
+    List<Product> findByDetailsContaining(String details);
+    List<Product> findBySubCategoryContaining(String subCategory);
+    List<Product> findByPriceBetween(int minimum, int maximum);
     List<Product> findAll();
 }

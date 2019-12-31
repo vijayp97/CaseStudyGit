@@ -25,4 +25,12 @@ public class PageController {
     public String homePage(){
         return "userHomePage.html";
     }
+    @RequestMapping("/cartPage")
+    public String cartPage(){
+        return "cartPage.html";
+    }
+    @RequestMapping("/orderPage")
+    public String orderPage(){
+        return "orderPage.html";
+    }
 }

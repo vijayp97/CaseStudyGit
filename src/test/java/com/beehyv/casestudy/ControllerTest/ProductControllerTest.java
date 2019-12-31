@@ -66,7 +66,7 @@ public class ProductControllerTest {
     }
     @Test
     public void getFilteredProductsTest() throws ProductNotFoundException {
-        productController.getFilteredProducts(any(), anyInt(), anyInt());
-        verify(productService, times(1)).getFilteredProducts(any(), anyInt(), anyInt());
+        productController.getFilteredProductsByCategory(any(), anyInt(), anyInt());
+        verify(productService, times(1)).getFilteredProductsByCategory(any(), anyInt(), anyInt());
     }
 }

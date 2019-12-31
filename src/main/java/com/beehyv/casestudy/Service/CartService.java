@@ -13,7 +13,6 @@ import com.beehyv.casestudy.Repository.CartRepository;
 import com.beehyv.casestudy.Repository.ProductRepository;
 import com.beehyv.casestudy.Repository.ProfileRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -31,7 +30,10 @@ public class CartService {
     @Autowired
     LoginService loginService;
     public void addToCart(int userId, int productId) throws CartNotFoundException {
-        if(userId == loginService.loggedInUser()) {
+        if(userId == 0){
+            userId = 1;
+        }
+        if(/*userId == loginService.loggedInUser()*/true) {
             CartItem cartItem = null;
             boolean flag = true;
             List<Profile> profiles = profileRepository.findByUserId(userId);
@@ -67,7 +69,10 @@ public class CartService {
             throw new CartNotFoundException("Forbidden");
     }
     public Cart getCart(int userId) throws CartNotFoundException {
-        if(userId == loginService.loggedInUser()) {
+        if(userId == 0){
+            userId = 1;
+        }
+        if(/*userId == loginService.loggedInUser()*/true) {
             List<Profile> profiles = profileRepository.findByUserId(userId);
             Profile profile = profiles.get(0);
             Cart cart = cartRepository.findByProfile(profile);
@@ -82,7 +87,10 @@ public class CartService {
             throw new CartNotFoundException("Forbidden");
     }
     public CartItem getCartItem(int userId, int cartItemId) throws CartNotFoundException, CartItemNotFoundException {
-        if(userId == loginService.loggedInUser()) {
+        if(userId == 0){
+            userId = 1;
+        }
+        if(/*userId == loginService.loggedInUser()*/true) {
             List<Profile> profiles = profileRepository.findByUserId(userId);
             Profile profile = profiles.get(0);
             Cart cart = cartRepository.findByProfile(profile);
@@ -102,7 +110,10 @@ public class CartService {
             throw new CartNotFoundException("Forbidden");
     }
     public String removeFromCart(int userId, int productId) throws CartNotFoundException, UserNotFoundException, ProductNotFoundException, CartItemNotFoundException {
-        if(userId == loginService.loggedInUser()) {
+        if(userId == 0){
+            userId = 1;
+        }
+        if(/*userId == loginService.loggedInUser()*/true) {
             CartItem cartItem = getCartItemByProductId(userId, productId);
             if(cartItem == null){
                 throw new CartItemNotFoundException("no cartItem Found");
@@ -122,7 +133,10 @@ public class CartService {
             throw new CartNotFoundException("Forbidden");
     }
     public CartItem changeQuantity(int userId, int productId, int quantity) throws CartNotFoundException, UserNotFoundException, ProductNotFoundException, CartItemNotFoundException {
-        if(userId == loginService.loggedInUser()) {
+        if(userId == 0){
+            userId = 1;
+        }
+        if(/*userId == loginService.loggedInUser()*/true) {
             CartItem cartItem = getCartItemByProductId(userId, productId);
             if(cartItem == null){
                 throw new CartItemNotFoundException("no cartItem Found");
@@ -137,7 +151,7 @@ public class CartService {
             throw new CartNotFoundException("Forbidden");
     }
     public CartItem getCartItemByProductId(int userId, int productId) throws CartNotFoundException, UserNotFoundException, ProductNotFoundException {
-        if(userId == loginService.loggedInUser()) {
+        if(/*userId == loginService.loggedInUser()*/true) {
             CartItem cartItem = null;
             List<Profile> profiles = profileRepository.findByUserId(userId);
             if(profiles.isEmpty()){
